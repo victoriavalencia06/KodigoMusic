@@ -428,6 +428,170 @@ body {
   display: none;
 }
 
+/* Player bar */
+.player-panel {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 90px;
+  background: #1b191f;
+  border-top: 1px solid #333;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1rem;
+  z-index: 2000;
+}
+
+.main-content main,
+.main-content .content {
+  padding-bottom: 110px;
+}
+
+/* Player - secciones */
+.player-panel .current-track {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 180px;
+  max-width: 380px;
+  flex: 0 0 auto;
+}
+
+.track-cover {
+  width: 56px;
+  height: 56px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  line-height: 1.15;
+}
+
+.track-title {
+  font-weight: 700;
+  color: #fff;
+}
+
+.track-artist {
+  color: #aaa;
+  font-size: 0.8rem;
+}
+
+/* Controles centrales: colocados verticalmente */
+.player-panel .player-controls {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+/* fila de botones de reproduccion */
+.controls-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Icon buttons (todos uniformes) */
+.icon-btn {
+  background: transparent;
+  border: none;
+  color: #fdfcfe;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .15s, color .15s, transform .12s;
+}
+
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.icon {
+  font-size: 16px;
+}
+
+.icon-btn.small .icon {
+  font-size: 18px;
+}
+
+.play-btn {
+  background: #a238ff;
+  color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  transition: transform .12s;
+}
+
+.play-btn:hover {
+  transform: scale(1.04);
+}
+
+.play-icon {
+  font-size: 18px;
+}
+
+.controls-row .icon {
+  font-size: 16px;
+}
+
+/* Barra de tiempo */
+.time-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.time-label {
+  color: #aaa;
+  font-size: 12px;
+  width: 40px;
+  text-align: center;
+}
+
+.time-bar {
+  flex: 1;
+  height: 6px;
+  background: #2b2b2b;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress {
+  width: 28%;
+  height: 100%;
+  background: linear-gradient(90deg, #a74fff, #c86dfd);
+  border-radius: 6px;
+}
+
+.extra-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  margin-left: 0.5rem;
+}
+
 /* Contenido principal */
 main {
   padding: 20px;
