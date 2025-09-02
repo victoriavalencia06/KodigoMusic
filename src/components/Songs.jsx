@@ -12,30 +12,80 @@ export default function Songs() {
             subtitle: "(feat. Kris R., ROA)",
             artist: "Blessd, Anuel AA, Yan Block, Luar La L",
             explicit: true,
-            img: "/images/song1.png"
+            img: "https://raw.githubusercontent.com/victoriavalencia06/project-images/refs/heads/main/song/song1.png"
         },
         {
             id: 2,
             title: "Tears",
-            subtitle: "", artist: "Sabrina Carpenter", 
-            explicit: false, 
-            img: "/images/song2.png"
+            subtitle: "",
+            artist: "Sabrina Carpenter",
+            explicit: false,
+            img: "https://raw.githubusercontent.com/victoriavalencia06/project-images/refs/heads/main/song/song2.png"
         },
-        { 
-            id: 3, 
-            title: "Rey Sin Reina", 
-            subtitle: "", 
-            artist: "Julián Álvarez y su Norteño Banda", 
-            explicit: false, 
-            img: "/images/song3.png" 
+        {
+            id: 3,
+            title: "Rey Sin Reina",
+            subtitle: "",
+            artist: "Julián Álvarez y su Norteño Banda",
+            explicit: false,
+            img: "https://raw.githubusercontent.com/victoriavalencia06/project-images/refs/heads/main/song/song3.png"
         },
-        { id: 4, title: "COQUETA", subtitle: "", artist: "Fuerza Regida, Grupo Frontera", explicit: false, img: "/images/song4.png" },
-        { id: 5, title: "SE LO JURO MOR", subtitle: "", artist: "Feid", explicit: false, img: "/images/song5.png" },
-        { id: 6, title: "Flowers", subtitle: "", artist: "Miley Cyrus", explicit: false, img: "https://i.scdn.co/image/ab67616d00001e02547f7f8e6f5b6d91598e9a28" },
-        { id: 7, title: "La Canción", subtitle: "", artist: "J Balvin, Bad Bunny", explicit: true, img: "https://i.scdn.co/image/ab67616d00001e02c5b9f76a3d1d4ef7f8b6c7c8" },
-        { id: 8, title: "Shape of You", subtitle: "", artist: "Ed Sheeran", explicit: false, img: "https://i.scdn.co/image/ab67616d00001e027af74794e3a0a4ef6d6e98f3" },
-        { id: 9, title: "Despacito", subtitle: "", artist: "Luis Fonsi, Daddy Yankee", explicit: false, img: "https://i.scdn.co/image/ab67616d00001e02856ed9c7fb109eb3b4d3d69b" },
-        { id: 10, title: "Blinding Lights", subtitle: "", artist: "The Weeknd", explicit: false, img: "https://i.scdn.co/image/ab67616d00001e0270a2e37d3d6e58f3e5d71f3d" },
+        {
+            id: 4,
+            title: "COQUETA",
+            subtitle: "",
+            artist: "Fuerza Regida, Grupo Frontera",
+            explicit: false,
+            img: "https://raw.githubusercontent.com/victoriavalencia06/project-images/refs/heads/main/song/song4.png"
+        },
+        {
+            id: 5,
+            title: "SE LO JURO MOR",
+            subtitle: "",
+            artist: "Feid",
+            explicit: false,
+            img: "https://raw.githubusercontent.com/victoriavalencia06/project-images/refs/heads/main/song/song5.png"
+        },
+        {
+            id: 6,
+            title: "Relojito Cartier",
+            subtitle: "",
+            artist: "Luis R Conriquez, Anuel AA",
+            explicit: true,
+            img: "https://raw.githubusercontent.com/victoriavalencia06/project-images/refs/heads/main/song/song6.png"
+        },
+        {
+            id: 7,
+            title: "Sauce Boyz Freestyle 6",
+            subtitle: "",
+            artist: "Eladio Carrion",
+            explicit: true,
+            img: "https://raw.githubusercontent.com/victoriavalencia06/project-images/refs/heads/main/song/song7.png"
+        },
+        {
+            id: 8,
+            title: "Who",
+            subtitle: "",
+            artist: "Jimin",
+            explicit: false,
+            img: "https://raw.githubusercontent.com/victoriavalencia06/project-images/refs/heads/main/song/song8.png"
+        },
+        {
+            id: 9,
+            title: "Ansiedad",
+            subtitle: "",
+            artist: "Grupo Arriesgado",
+            explicit: false,
+            img: "https://raw.githubusercontent.com/victoriavalencia06/project-images/refs/heads/main/song/song9.png"
+        },
+        {
+            id: 10,
+            title: "Piedras a la luna",
+            subtitle: "",
+            artist: "Eden Muñoz",
+            explicit: false,
+            img: "https://raw.githubusercontent.com/victoriavalencia06/project-images/refs/heads/main/song/song10.png"
+        }
     ];
 
     const songsPerPage = 5;
@@ -54,10 +104,10 @@ export default function Songs() {
 
     const handleToggleShowAll = () => {
         if (visibleSongs === 5) {
-            setVisibleSongs(songs.length); // mostrar todos
+            setVisibleSongs(songs.length);
             setStartIndex(0);
         } else {
-            setVisibleSongs(5); // volver a 5
+            setVisibleSongs(5);
             setStartIndex(0);
         }
     };
