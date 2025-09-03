@@ -2,7 +2,7 @@ import React from 'react';
 import Songs from '../components/Songs';
 import Categories from '../components/Categories';
 
-export default function Home() {
+export default function Home({onSelectSong}) {
   return (
     <>
       <section>
@@ -12,8 +12,7 @@ export default function Home() {
 
       <Categories />
 
-      
-      <Songs />
+      <Songs onSelectSong={onSelectSong} />
     </>
   );
 }

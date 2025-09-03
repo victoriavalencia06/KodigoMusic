@@ -1,5 +1,6 @@
 import React from 'react';
 import { BsHouseDoorFill, BsCompassFill, BsHeartFill, BsPlus } from "react-icons/bs";
+import { Link } from 'react-router-dom';
 
 export default function Sidebar({ open, setOpen }) {
   return (
@@ -12,9 +13,15 @@ export default function Sidebar({ open, setOpen }) {
 
       {/* Navegación principal */}
       <div className="sidebar-box">
-        <a href="#"><BsHouseDoorFill /> Inicio</a>
-        <a href="#"><BsCompassFill /> Explorar</a>
-        <a href="#"><BsHeartFill /> Favoritos</a>
+        <Link to="/" onClick={() => setOpen(false)}>
+          <BsHouseDoorFill /> Inicio
+        </Link>
+        <Link to="/explore" onClick={() => setOpen(false)}>
+          <BsCompassFill /> Explorar
+        </Link>
+        <Link to="/favorite" onClick={() => setOpen(false)}>
+          <BsHeartFill /> Favoritos
+        </Link>
       </div>
 
       {/* Línea divisoria */}

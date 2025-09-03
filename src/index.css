@@ -583,7 +583,7 @@ body {
 
 /* Barra de tiempo */
 .time-row {
-  width: 100%;
+  width: 50%;
   display: flex;
   align-items: center;
   gap: 10px;

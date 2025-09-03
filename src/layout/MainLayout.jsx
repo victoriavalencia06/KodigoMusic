@@ -1,10 +1,11 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Sidebar from "../components/SideBar";
 import Topbar from "../components/Topbar";
 import Player from "../components/Player";
 
 export default function MainLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [currentSong, setCurrentSong] = useState(null);
 
   return (
     <div className="layout">
@@ -14,11 +15,11 @@ export default function MainLayout({ children }) {
       {/* Área principal */}
       <div className="main-content">
         <Topbar onToggle={() => setSidebarOpen(true)} />
-        <main>{children}</main>
+        <main>{React.cloneElement(children, { onSelectSong: setCurrentSong })}</main>
       </div>
 
       {/* Player: sibling (fuera del main-content) para mayor control */}
-      <Player />
+      <Player track={currentSong} />
 
       {/* Backdrop */}
       {sidebarOpen && (

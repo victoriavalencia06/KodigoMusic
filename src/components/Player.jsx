@@ -20,7 +20,7 @@ export default function Player({ track, isPlaying, onTogglePlay }) {
       <section className="current-track" aria-label="Canción en reproducción">
         {hasTrack ? (
           <>
-            <img src={track.cover} alt={track.title} className="track-cover" />
+            <img src={track.img} alt={track.title} className="track-cover" />
             <div className="track-info">
               <span className="track-title">{track.title}</span>
               <span className="track-artist">{track.artist}</span>

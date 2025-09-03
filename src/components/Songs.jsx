@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 
-export default function Songs() {
+export default function Songs({onSelectSong}) {
     const [visibleSongs, setVisibleSongs] = useState(5);
     const [startIndex, setStartIndex] = useState(0);
 
@@ -135,7 +135,7 @@ export default function Songs() {
 
                 <div className={visibleSongs === 5 ? "songs-row" : "songs-grid"}>
                     {visibleList.map((song) => (
-                        <div key={song.id} className="song-card">
+                        <div key={song.id} className="song-card" onClick={() => onSelectSong(song)}>
                             <img src={song.img} alt={song.title} className="song-img" />
                             <div className="song-body">
                                 <div className="song-title">
