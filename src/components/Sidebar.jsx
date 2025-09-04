@@ -16,12 +16,10 @@ export default function Sidebar({ open, setOpen }) {
         <Link to="/" onClick={() => setOpen(false)}>
           <BsHouseDoorFill /> Inicio
         </Link>
-        <Link to="/explore" onClick={() => setOpen(false)}>
-          <BsCompassFill /> Explorar
-        </Link>
         <Link to="/favorite" onClick={() => setOpen(false)}>
           <BsHeartFill /> Favoritos
         </Link>
+        <a href="#"><BsCompassFill /> Explorar</a>
       </div>
 
       {/* Línea divisoria */}
