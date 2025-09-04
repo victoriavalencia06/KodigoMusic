@@ -125,13 +125,6 @@ export default function Favorites() {
             {/* Header */}
             <div className="fav-artists-header">
               <h4 className="fav-artists-title">3 artistas</h4>
-              <div className="fav-artists-controls">
-                <input
-                  type="search"
-                  placeholder="Buscar"
-                  className="fav-artists-search"
-                />
-              </div>
             </div>
 
             {/* Lista de artistas */}

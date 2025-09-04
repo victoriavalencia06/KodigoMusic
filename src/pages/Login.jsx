@@ -62,9 +62,9 @@ const Login = () => {
                                     message: "La contraseña debe tener mínimo 6 caracteres"
                                 },
                                 pattern: {
-                                    value: /^(?=.*[A-Z])(?=.*[@$!%*?&]).{6,}$/,
+                                    value: /^(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{6,}$/,
                                     message:
-                                        "Debe incluir al menos una letra mayúscula y un carácter especial (@$!%*?&)"
+                                        "Debe incluir al menos una letra mayúscula y un carácter especial (@$!%*?#&)"
                                 }
                             })}
                         />
