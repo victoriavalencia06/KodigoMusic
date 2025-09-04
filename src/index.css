@@ -29,7 +29,7 @@ body {
 
 /* Sidebar */
 .sidebar {
-  background-color: var(--surface);
+  background-color: #1b191f;
   min-width: 250px;
   height: 100vh;
   padding: 20px;

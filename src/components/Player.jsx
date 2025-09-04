@@ -83,7 +83,7 @@ export default function Player({
   };
 
   return (
-    <div className="player-panel" role="region" aria-label="Player">
+    <footer className="player-panel" role="region" aria-label="Player">
       {/* Izquierda */}
       <section className="current-track" aria-label="Canción en reproducción">
         {hasTrack ? (
@@ -162,6 +162,6 @@ export default function Player({
         <button className="icon-btn small"><MdVolumeUp className="icon" /></button>
         <button className="icon-btn small"><MdSettings className="icon" /></button>
       </section>
-    </div>
+    </footer>
   );
 }
