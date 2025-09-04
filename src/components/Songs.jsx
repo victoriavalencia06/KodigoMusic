@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 
 export default function Songs({ onSelectSong }) {
-  const [visibleSongs, setVisibleSongs] = useState(5);
-  const [startIndex, setStartIndex] = useState(0);
+  const [showAll, setShowAll] = useState(false);
+  const rowRef = useRef();
 
   const songs = [
     {
@@ -13,7 +13,7 @@ export default function Songs({ onSelectSong }) {
       artist: "Blessd, Anuel AA, Yan Block, Luar La L",
       explicit: true,
       img: "https://raw.githubusercontent.com/victoriavalencia06/project-images/refs/heads/main/song/song1.png",
-      duration: 192
+      duration: 192,
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ export default function Songs({ onSelectSong }) {
       artist: "Sabrina Carpenter",
       explicit: false,
       img: "https://raw.githubusercontent.com/victoriavalencia06/project-images/refs/heads/main/song/song2.png",
-      duration: 214
+      duration: 214,
     },
     {
       id: 3,
@@ -31,7 +31,7 @@ export default function Songs({ onSelectSong }) {
       artist: "Julián Álvarez y su Norteño Banda",
       explicit: false,
       img: "https://raw.githubusercontent.com/victoriavalencia06/project-images/refs/heads/main/song/song3.png",
-      duration: 201
+      duration: 201,
     },
     {
       id: 4,
@@ -40,7 +40,7 @@ export default function Songs({ onSelectSong }) {
       artist: "Fuerza Regida, Grupo Frontera",
       explicit: false,
       img: "https://raw.githubusercontent.com/victoriavalencia06/project-images/refs/heads/main/song/song4.png",
-      duration: 198
+      duration: 198,
     },
     {
       id: 5,
@@ -49,7 +49,7 @@ export default function Songs({ onSelectSong }) {
       artist: "Feid",
       explicit: false,
       img: "https://raw.githubusercontent.com/victoriavalencia06/project-images/refs/heads/main/song/song5.png",
-      duration: 176
+      duration: 176,
     },
     {
       id: 6,
@@ -58,7 +58,7 @@ export default function Songs({ onSelectSong }) {
       artist: "Luis R Conriquez, Anuel AA",
       explicit: true,
       img: "https://raw.githubusercontent.com/victoriavalencia06/project-images/refs/heads/main/song/song6.png",
-      duration: 205
+      duration: 205,
     },
     {
       id: 7,
@@ -67,7 +67,7 @@ export default function Songs({ onSelectSong }) {
       artist: "Eladio Carrion",
       explicit: true,
       img: "https://raw.githubusercontent.com/victoriavalencia06/project-images/refs/heads/main/song/song7.png",
-      duration: 235
+      duration: 235,
     },
     {
       id: 8,
@@ -76,7 +76,7 @@ export default function Songs({ onSelectSong }) {
       artist: "Jimin",
       explicit: false,
       img: "https://raw.githubusercontent.com/victoriavalencia06/project-images/refs/heads/main/song/song8.png",
-      duration: 189
+      duration: 189,
     },
     {
       id: 9,
@@ -85,7 +85,7 @@ export default function Songs({ onSelectSong }) {
       artist: "Grupo Arriesgado",
       explicit: false,
       img: "https://raw.githubusercontent.com/victoriavalencia06/project-images/refs/heads/main/song/song9.png",
-      duration: 222
+      duration: 222,
     },
     {
       id: 10,
@@ -94,57 +94,47 @@ export default function Songs({ onSelectSong }) {
       artist: "Eden Muñoz",
       explicit: false,
       img: "https://raw.githubusercontent.com/victoriavalencia06/project-images/refs/heads/main/song/song10.png",
-      duration: 208
-    }
+      duration: 208,
+    },
   ];
 
-  const songsPerPage = 5;
-
   const handleNext = () => {
-    if (startIndex + songsPerPage < songs.length) {
-      setStartIndex(startIndex + songsPerPage);
+    if (rowRef.current) {
+      rowRef.current.scrollBy({ left: 200, behavior: "smooth" });
     }
   };
 
   const handlePrev = () => {
-    if (startIndex - songsPerPage >= 0) {
-      setStartIndex(startIndex - songsPerPage);
+    if (rowRef.current) {
+      rowRef.current.scrollBy({ left: -200, behavior: "smooth" });
     }
   };
 
   const handleToggleShowAll = () => {
-    if (visibleSongs === 5) {
-      setVisibleSongs(songs.length);
-      setStartIndex(0);
-    } else {
-      setVisibleSongs(5);
-      setStartIndex(0);
-    }
+    setShowAll(!showAll);
   };
-
-  const visibleList =
-    visibleSongs === 5
-      ? songs.slice(startIndex, startIndex + songsPerPage)
-      : songs;
 
   return (
     <div>
       <div className="songs-start">
         <h3>Canciones en tendencia</h3>
         <div className="songs-show-all" onClick={handleToggleShowAll}>
-          {visibleSongs === 5 ? "Mostrar todos" : "Mostrar menos"}
+          {showAll ? "Mostrar menos" : "Mostrar todos"}
         </div>
       </div>
 
       <div className="songs-wrapper">
-        {visibleSongs === 5 && startIndex > 0 && (
+        {!showAll && (
           <button className="songs-arrow left" onClick={handlePrev}>
             <FaChevronLeft />
           </button>
         )}
 
-        <div className={visibleSongs === 5 ? "songs-row" : "songs-grid"}>
-          {visibleList.map((song) => (
+        <div
+          className={showAll ? "songs-grid" : "songs-row"}
+          ref={!showAll ? rowRef : null}
+        >
+          {songs.map((song) => (
             <div
               key={song.id}
               className="song-card"
@@ -153,7 +143,8 @@ export default function Songs({ onSelectSong }) {
               <img src={song.img} alt={song.title} className="song-img" />
               <div className="song-body">
                 <div className="song-title">
-                  {song.title} {song.subtitle && <small>{song.subtitle}</small>}
+                  {song.title}{" "}
+                  {song.subtitle && <small>{song.subtitle}</small>}
                 </div>
                 <div className="song-artist">
                   {song.explicit && <span className="explicit-tag">E</span>}
@@ -164,12 +155,11 @@ export default function Songs({ onSelectSong }) {
           ))}
         </div>
 
-        {visibleSongs === 5 &&
-          startIndex + songsPerPage < songs.length && (
-            <button className="songs-arrow right" onClick={handleNext}>
-              <FaChevronRight />
-            </button>
-          )}
+        {!showAll && (
+          <button className="songs-arrow right" onClick={handleNext}>
+            <FaChevronRight />
+          </button>
+        )}
       </div>
     </div>
   );

@@ -358,10 +358,18 @@ body {
   overflow: hidden;
 }
 
+/* Carrusel horizontal */
 .songs-row {
   display: flex;
   gap: 1rem;
-  overflow: hidden;
+  overflow-x: auto;              /* scroll horizontal */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;         /* Firefox */
+}
+
+.songs-row::-webkit-scrollbar {
+  display: none;                 /* Chrome, Safari */
 }
 
 .songs-grid {
@@ -430,25 +438,22 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
+  background: rgba(0, 0, 0, 0.6);
   border: none;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
   cursor: pointer;
-  z-index: 10;
+  z-index: 2;
+  padding: 0.5rem;
+  border-radius: 50%;
 }
 
 .songs-arrow.left {
-  left: 0.25rem;
+  left: 0.5rem;
 }
 
 .songs-arrow.right {
-  right: 0.25rem;
+  right: 0.5rem;
 }
 
 .songs-arrow:hover {
@@ -591,7 +596,7 @@ body {
 
 /* Barra de tiempo */
 .time-row {
-  width: 100%;
+  width: 200%;
   max-width: 500px; /* ancho límite */
   display: flex;
   align-items: center;
@@ -1158,5 +1163,48 @@ main {
   .playlist-container {
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .player-panel {
+    grid-template-columns: auto 1fr auto; /* cover - info - play */
+    height: 70px;
+    padding: 0 0.75rem;
+  }
+
+  .extra-controls,
+  .time-row,
+  .current-track .icon-btn {
+    display: none !important;
+  }
+
+  .player-panel .current-track {
+    flex: 1;
+    gap: 0.5rem;
+  }
+
+  .track-cover {
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+  }
+
+  .track-info {
+    max-width: 140px;
+  }
+
+  .track-title {
+    font-size: 0.85rem;
+  }
+
+  .track-artist {
+    font-size: 0.7rem;
+  }
+
+  .player-controls {
+    margin-left: 3.5rem;
+    width: 50px;
+    height: 50px;
+    box-shadow: none;
+    color: #fff;
   }
 }
