@@ -131,11 +131,6 @@ export default function Favorites() {
                   placeholder="Buscar"
                   className="fav-artists-search"
                 />
-                <select className="fav-artists-filter">
-                  <option>Añadidos recientemente</option>
-                  <option>Más populares</option>
-                  <option>Menos populares</option>
-                </select>
               </div>
             </div>
 

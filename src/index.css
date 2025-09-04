@@ -1004,16 +1004,6 @@ main {
   color: var(--muted);
 }
 
-.fav-artists-filter {
-  background-color: #0f0d13;
-  border: none;
-  border-radius: 12px;
-  padding: 8px 12px;
-  color: var(--text);
-  font-size: 0.9rem;
-  cursor: pointer;
-}
-
 .fav-artists-list {
   display: flex;
   gap: 20px;
@@ -1106,12 +1096,16 @@ main {
   }
 
   .topbar {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 
   .search-container {
     flex: 1;
-    order: 2;
+    min-width: 0;
+  }
+
+  .search-container input {
+    width: 100%;         /* se ajusta al espacio disponible */
   }
 
   .icons {
